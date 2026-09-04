@@ -1,1 +1,35 @@
+<!-- Exemplo no Passo 1 -->
+<div class="passo" id="passo-1">
+    <p>Você começa sua jornada no Rio de Janeiro, subindo o Pico da Tijuca ao amanhecer para encontrar a primeira pista.</p>
+    <button class="btn-proximo" data-proximo="3">Procurar a pista no topo do pico</button>
+    <button class="btn-proximo" data-proximo="4">Desistir e voltar para casa</button>
+    
+    <!-- Botão de Voltar -->
+    <button class="btn-voltar" data-voltar="0">Voltar ao início</button>
+</div>
+// Seleciona todos os botões de voltar
+const botoesVoltar = document.querySelectorAll('.btn-voltar');
 
+botoesVoltar.forEach(button => {
+    button.addEventListener('click', function() {
+        // Identifica o passo que está visível no momento
+        const atual = document.querySelector('.ativo');
+        
+        // Pega o número do passo anterior a partir do atributo data-voltar
+        const passoAnterior = 'passo-' + this.getAttribute('data-voltar');
+
+        // Remove a classe 'ativo' do passo atual
+        atual.classList.remove('ativo');
+        
+        // Adiciona a classe 'ativo' no passo anterior para exibi-lo novamente
+        document.getElementById(passoAnterior).classList.add('ativo');
+    });
+});
+button.btn-voltar {
+    background-color: #555555; /* Cinza para diferenciar dos botões principais */
+    margin-top: 10px;
+}
+
+button.btn-voltar:hover {
+    background-color: #333333;
+}
