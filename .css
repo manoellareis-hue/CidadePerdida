@@ -1,0 +1,19 @@
+/* Regra para esconder todos os passos por padrão */
+.passo {
+    display: none;
+}
+
+/* Regra para exibir apenas o passo ativo */
+.passo.ativo {
+    display: block;
+}
+
+/* Estilização dos botões de voltar */
+button.btn-voltar {
+    background-color: #555555; /* Cinza para diferenciar dos botões principais */
+    margin-top: 10px;
+}
+
+button.btn-voltar:hover {
+    background-color: #333333;
+}
