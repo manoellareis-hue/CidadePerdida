@@ -1,23 +1,37 @@
-// Seleciona todos os botões de voltar
+// Seleciona todos os botões de próximo e voltar
+const botoesProximo = document.querySelectorAll('.btn-proximo');
 const botoesVoltar = document.querySelectorAll('.btn-voltar');
 
-botoesVoltar.forEach(button => {
+// Lógica para avançar de passo
+botoesProximo.forEach(button => {
     button.addEventListener('click', function() {
-        // Identifica o passo visível
         const atual = document.querySelector('.ativo');
+        const proximoPassoId = 'passo-' + this.getAttribute('data-proximo');
         
-        // Remove a classe 'ativo' do passo atual (se existir)
         if (atual) {
             atual.classList.remove('ativo');
         }
         
-        // Pega o id do passo anterior
-        const passoAnterior = 'passo-' + this.getAttribute('data-voltar');
-        const elementoAnterior = document.getElementById(passoAnterior);
+        const proximoPasso = document.getElementById(proximoPassoId);
+        if (proximoPasso) {
+            proximoPasso.classList.add('ativo');
+        }
+    });
+});
 
-        // Exibe o passo anterior
-        if (elementoAnterior) {
-            elementoAnterior.classList.add('ativo');
+// Lógica para voltar de passo
+botoesVoltar.forEach(button => {
+    button.addEventListener('click', function() {
+        const atual = document.querySelector('.ativo');
+        const passoAnteriorId = 'passo-' + this.getAttribute('data-voltar');
+        
+        if (atual) {
+            atual.classList.remove('ativo');
+        }
+        
+        const passoAnterior = document.getElementById(passoAnteriorId);
+        if (passoAnterior) {
+            passoAnterior.classList.add('ativo');
         }
     });
 });

@@ -1,4 +1,19 @@
-/* Regra para esconder todos os passos por padrão */
+/* Esconde todos os passos por padrão */
+.passo {
+    display: none;
+}
+
+/* Exibe apenas o passo que tiver a classe ativo */
+.passo.ativo {
+    display: block;
+}
+
+/* Configuração do contêiner principal */
+main {
+    text-align: center;
+    max-width: 90%;
+    margin: 0 auto;
+}* Regra para esconder todos os passos por padrão */
 .passo {
     display: none;
 }
@@ -11,6 +26,32 @@
 /* Estilização dos botões de voltar */
 button.btn-voltar {
     background-color: #555555; /* Cinza para diferenciar dos botões principais */
+    margin-top: 10px;
+}
+
+button.btn-voltar:hover {
+    background-color: #333333;
+}
+
+/* Limite de tamanho e proporção das imagens */
+img {
+    max-width: 90%;
+    height: auto;
+}
+
+/* Botões de navegação */
+button.btn-proximo,
+button.btn-voltar {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.btn-voltar {
+    background-color: #555555;
+    color: #ffffff;
     margin-top: 10px;
 }
 
